@@ -9,7 +9,9 @@ PATH=$PATH:~/bin
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="eastwood"
+
+. /usr/local/lib/python3.5/dist-packages/powerline/bindings/zsh/powerline.zsh
 
 alias gitupdate='(for l in `find . -name .git | xargs -i dirname {}` ; do cd $l; pwd; git pull; cd -; done)'
 

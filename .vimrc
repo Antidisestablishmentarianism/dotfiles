@@ -4,13 +4,15 @@ filetype plugin indent on
 
 let g:indent_guides_enable_on_vim_startup = 1 
 
+let g:indentLine_setColors = 0
+let g:indentLine_char = '┆'
+
 set rtp+=~/.vim/bundle/vundle
 
 set backspace=2
 set laststatus=2
 set t_Co=256
 
-set expandtab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
@@ -18,18 +20,26 @@ set autoindent
 set smartindent
 set number
 
-let g:jellybeans_background_color_256='NONE'
-syntax enable
-colorscheme jellybeans 
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set showmatch
+
+set showmode
 
 call vundle#begin()
 
 Plugin 'gmarik/vundle'
-Plugin 'vim-syntastic/syntastic'
+Plugin 'dylanaraps/wal.vim'
+Plugin 'Yggdroot/indentLine'
 
 call vundle#end()
 
 call pathogen#infect()
+
+syntax enable
+colorscheme wal 
 
 set laststatus=2
 set encoding=utf-8

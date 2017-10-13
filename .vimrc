@@ -33,13 +33,14 @@ call vundle#begin()
 Plugin 'gmarik/vundle'
 Plugin 'dylanaraps/wal.vim'
 Plugin 'Yggdroot/indentLine'
+Plugin 'bluz71/vim-moonfly-colors'
 
 call vundle#end()
 
 call pathogen#infect()
 
 syntax enable
-colorscheme wal 
+colorscheme moonfly
 
 set laststatus=2
 set encoding=utf-8
@@ -52,7 +53,7 @@ autocmd filetype crontab setlocal nobackup nowritebackup
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>
+noremap <Down> :echoe "Use j"<CR>
 
 " Keep cursor in center of screen
 nnoremap j jzz

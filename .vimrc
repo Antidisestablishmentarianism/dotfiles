@@ -31,16 +31,14 @@ set showmode
 call vundle#begin()
 
 Plugin 'gmarik/vundle'
-Plugin 'dylanaraps/wal.vim'
 Plugin 'Yggdroot/indentLine'
-Plugin 'bluz71/vim-moonfly-colors'
 
 call vundle#end()
 
 call pathogen#infect()
 
 syntax enable
-colorscheme moonfly
+colorscheme dark-ruby
 
 set laststatus=2
 set encoding=utf-8
@@ -48,6 +46,9 @@ set t_Co=256
 set fillchars+=stl:\ ,stlnc:\
 
 autocmd filetype crontab setlocal nobackup nowritebackup
+
+" Autcomplete braces
+inoremap {<CR> {<CR>}<Esc>ko
 
 " Disable arrow keys
 nnoremap <Left> :echoe "Use h"<CR>

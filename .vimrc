@@ -7,6 +7,13 @@ let g:indent_guides_enable_on_vim_startup = 1
 let g:indentLine_setColors = 0
 let g:indentLine_char = '┆'
 
+let g:UltiSnipsExpandTrigger="<Tab>"
+let g:UltiSnipsJumpForwardTrigger="<C-j>"
+let g:UltiSnipsJumpBackwardTrigger="<C-k>"
+let g:UltiSnipsSnippetDirectories=["UltiSnips","vim-snippets"]
+
+let delimitMate_expand_cr = 1
+
 set rtp+=~/.vim/bundle/vundle
 
 set backspace=2
@@ -32,13 +39,16 @@ call vundle#begin()
 
 Plugin 'gmarik/vundle'
 Plugin 'Yggdroot/indentLine'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'Raimondi/delimitMate'
 
 call vundle#end()
 
 call pathogen#infect()
 
 syntax enable
-colorscheme dark-ruby
+colorscheme automation
 
 set laststatus=2
 set encoding=utf-8
@@ -46,9 +56,6 @@ set t_Co=256
 set fillchars+=stl:\ ,stlnc:\
 
 autocmd filetype crontab setlocal nobackup nowritebackup
-
-" Autcomplete braces
-inoremap {<CR> {<CR>}<Esc>ko
 
 " Disable arrow keys
 nnoremap <Left> :echoe "Use h"<CR>

@@ -11,7 +11,6 @@ let g:UltiSnipsExpandTrigger="<Tab>"
 let g:UltiSnipsJumpForwardTrigger="<C-j>"
 let g:UltiSnipsJumpBackwardTrigger="<C-k>"
 let g:UltiSnipsSnippetDirectories=["UltiSnips","vim-snippets"]
-
 let delimitMate_expand_cr = 1
 
 set rtp+=~/.vim/bundle/vundle
@@ -26,6 +25,7 @@ set shiftwidth=4
 set autoindent
 set smartindent
 set number
+set hidden
 
 set hlsearch
 set incsearch
@@ -35,6 +35,8 @@ set showmatch
 
 set showmode
 
+set listchars=tab:▸\ ,eol:¬
+
 call vundle#begin()
 
 Plugin 'gmarik/vundle'
@@ -42,6 +44,7 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'Raimondi/delimitMate'
+Plugin 'scrooloose/nerdtree'
 
 call vundle#end()
 
@@ -68,3 +71,18 @@ nnoremap k kzz
 " Insert newline without entering insert mode
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
+
+" Keep highlight when indenting in visual mode
+vmap > >gv
+vmap < <gv
+
+" Toggle NERDTree
+map <C-n> :NERDTreeToggle<CR>
+
+" Open window below instead of above
+nnoremap <C-W>N :let sb=&sb<BAR>set sb<BAR>new<BAR>let &sb=sb<CR>
+
+" Toggle indent and newline hidden characters
+nnoremap <C-l> :set list!<Enter>
+
+command Test :!ptest<Space>-f<Space>%<Space>-k

@@ -5,7 +5,7 @@ filetype plugin indent on
 let g:indent_guides_enable_on_vim_startup = 1 
 
 let g:indentLine_setColors = 0
-let g:indentLine_char = '┆'
+let g:indentLine_char = '|'
 
 let g:UltiSnipsExpandTrigger="<Tab>"
 let g:UltiSnipsJumpForwardTrigger="<C-j>"
@@ -86,3 +86,6 @@ nnoremap <C-W>N :let sb=&sb<BAR>set sb<BAR>new<BAR>let &sb=sb<CR>
 nnoremap <C-l> :set list!<Enter>
 
 command Test :!ptest<Space>-f<Space>%<Space>-k
+
+" Bind ejs to html for syntax highlighting
+au BufNewFile,BufRead *.ejs set filetype=html

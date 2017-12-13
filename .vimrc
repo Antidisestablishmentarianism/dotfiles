@@ -7,11 +7,13 @@ let g:indent_guides_enable_on_vim_startup = 1
 let g:indentLine_setColors = 0
 let g:indentLine_char = '|'
 
-let g:UltiSnipsExpandTrigger="<Tab>"
-let g:UltiSnipsJumpForwardTrigger="<C-j>"
-let g:UltiSnipsJumpBackwardTrigger="<C-k>"
+let g:UltiSnipsListSnippets="<c-e>"
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
 let g:UltiSnipsSnippetDirectories=["UltiSnips","vim-snippets"]
 let delimitMate_expand_cr = 1
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
 
 set rtp+=~/.vim/bundle/vundle
 
@@ -27,7 +29,6 @@ set smartindent
 set number
 set hidden
 
-set hlsearch
 set incsearch
 set ignorecase
 set smartcase
@@ -45,13 +46,16 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/nerdtree'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'w0rp/ale'
 
 call vundle#end()
 
 call pathogen#infect()
 
 syntax enable
-colorscheme automation
+set background=dark
+colorscheme solarized
 
 set laststatus=2
 set encoding=utf-8
@@ -85,7 +89,40 @@ nnoremap <C-W>N :let sb=&sb<BAR>set sb<BAR>new<BAR>let &sb=sb<CR>
 " Toggle indent and newline hidden characters
 nnoremap <C-l> :set list!<Enter>
 
-command Test :!ptest<Space>-f<Space>%<Space>-k
-
 " Bind ejs to html for syntax highlighting
 au BufNewFile,BufRead *.ejs set filetype=html
+
+function! g:UltiSnips_Complete()
+  call UltiSnips#ExpandSnippet()
+  if g:ulti_expand_res == 0
+    if pumvisible()
+      return "\<C-n>"
+    else
+      call UltiSnips#JumpForwards()
+      if g:ulti_jump_forwards_res == 0
+        return "\<TAB>"
+      endif
+    endif
+  endif
+  return ""
+endfunction
+
+function! g:UltiSnips_Reverse()
+  call UltiSnips#JumpBackwards()
+  if g:ulti_jump_backwards_res == 0
+    return "\<C-P>"
+  endif
+
+  return ""
+endfunction
+
+if !exists("g:UltiSnipsJumpForwardTrigger")
+  let g:UltiSnipsJumpForwardTrigger = "<tab>"
+endif
+
+if !exists("g:UltiSnipsJumpBackwardTrigger")
+  let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+endif
+
+au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
+au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsJumpBackwardTrigger . " <C-R>=g:UltiSnips_Reverse()<cr>"

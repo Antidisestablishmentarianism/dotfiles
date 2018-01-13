@@ -43,10 +43,10 @@ call vundle#begin()
 Plugin 'gmarik/vundle'
 Plugin 'Yggdroot/indentLine'
 Plugin 'SirVer/ultisnips'
+Plugin 'flazz/vim-colorschemes'
 Plugin 'honza/vim-snippets'
 Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/nerdtree'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'w0rp/ale'
 
 call vundle#end()
@@ -55,7 +55,7 @@ call pathogen#infect()
 
 syntax enable
 set background=dark
-colorscheme solarized
+colorscheme automation
 
 set laststatus=2
 set encoding=utf-8

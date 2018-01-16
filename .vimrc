@@ -1,6 +1,4 @@
 set nocompatible
-filetype plugin on
-filetype plugin indent on
 
 let g:indent_guides_enable_on_vim_startup = 1 
 
@@ -15,8 +13,6 @@ let g:UltiSnipsSnippetDirectories=["UltiSnips","vim-snippets"]
 let delimitMate_expand_cr = 1
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
 
-set rtp+=~/.vim/bundle/vundle
-
 set backspace=2
 set laststatus=2
 set t_Co=256
@@ -27,6 +23,7 @@ set shiftwidth=4
 set autoindent
 set smartindent
 set number
+set relativenumber
 set hidden
 
 set incsearch
@@ -36,26 +33,39 @@ set showmatch
 
 set showmode
 
+set wildmenu
+set wildmode=full
+
 set listchars=tab:▸\ ,eol:¬
 
-call vundle#begin()
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-Plugin 'gmarik/vundle'
-Plugin 'Yggdroot/indentLine'
-Plugin 'SirVer/ultisnips'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'honza/vim-snippets'
-Plugin 'Raimondi/delimitMate'
-Plugin 'scrooloose/nerdtree'
-Plugin 'w0rp/ale'
+call plug#begin('~/.vim/bundle')
 
-call vundle#end()
+Plug 'gmarik/vundle'
+Plug 'Yggdroot/indentLine'
+Plug 'SirVer/ultisnips'
+Plug 'flazz/vim-colorschemes'
+Plug 'honza/vim-snippets'
+Plug 'Raimondi/delimitMate'
+Plug 'scrooloose/nerdtree'
+Plug 'w0rp/ale'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'dodie/vim-disapprove-deep-indentation'
+
+call plug#end()
 
 call pathogen#infect()
 
 syntax enable
 set background=dark
-colorscheme automation
+let g:solarized_termtrans=1
+colorscheme solarized
 
 set laststatus=2
 set encoding=utf-8

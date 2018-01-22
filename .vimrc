@@ -52,11 +52,12 @@ Plug 'SirVer/ultisnips'
 Plug 'flazz/vim-colorschemes'
 Plug 'honza/vim-snippets'
 Plug 'Raimondi/delimitMate'
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'w0rp/ale'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'dodie/vim-disapprove-deep-indentation'
+Plug 'sjl/gundo.vim'
 
 call plug#end()
 
@@ -72,11 +73,18 @@ set encoding=utf-8
 set t_Co=256
 set fillchars+=stl:\ ,stlnc:\
 
+let mapleader = " "
+
 " Disable arrow keys
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
-noremap <Down> :echoe "Use j"<CR>
+nnoremap <Down> :echoe "Use j"<CR>
+
+inoremap <Left> <Esc>:echoe "Use h"<CR>
+inoremap <Right> <Esc>:echoe "Use l"<CR>
+inoremap <Up> <Esc>:echoe "Use k"<CR>
+inoremap <Down> <Esc>:echoe "Use j"<CR>
 
 " Keep cursor in center of screen
 nnoremap j jzz
@@ -91,16 +99,29 @@ vmap > >gv
 vmap < <gv
 
 " Toggle NERDTree
-map <C-n> :NERDTreeToggle<CR>
+map <leader>n :NERDTreeToggle<CR>
 
 " Open window below instead of above
 nnoremap <C-W>N :let sb=&sb<BAR>set sb<BAR>new<BAR>let &sb=sb<CR>
 
+" Toggle gundo
+nnoremap <leader>g :GundoToggle<CR>
+
 " Toggle indent and newline hidden characters
-nnoremap <C-l> :set list!<Enter>
+nnoremap <leader>p :set list!<CR>
 
 " Bind ejs to html for syntax highlighting
 au BufNewFile,BufRead *.ejs set filetype=html
+
+" Make multi-windows easier to use
+nnoremap <leader>w <C-w>
+nnoremap <leader>h <C-w>h
+nnoremap <leader>j <C-w>j
+nnoremap <leader>k <C-w>k
+nnoremap <leader>l <C-w>l
+
+" When you try to close too fast
+command! Wq wq
 
 function! g:UltiSnips_Complete()
   call UltiSnips#ExpandSnippet()

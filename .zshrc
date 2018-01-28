@@ -15,8 +15,6 @@ PATH=$PATH:~/bin
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="eastwood"
 
-. /usr/local/lib/python3.5/dist-packages/powerline/bindings/zsh/powerline.zsh
-
 alias gitupdate='(for l in `find . -name .git | xargs -i dirname {}` ; do cd $l; pwd; git pull; cd -; done)'
 
 # Uncomment the following line to use case-sensitive completion.

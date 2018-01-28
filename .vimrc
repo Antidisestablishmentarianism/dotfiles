@@ -38,6 +38,7 @@ set wildmode=full
 
 set listchars=tab:▸\ ,eol:¬
 
+" Install vim plug if not installed already
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -80,11 +81,6 @@ nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
-
-inoremap <Left> <Esc>:echoe "Use h"<CR>
-inoremap <Right> <Esc>:echoe "Use l"<CR>
-inoremap <Up> <Esc>:echoe "Use k"<CR>
-inoremap <Down> <Esc>:echoe "Use j"<CR>
 
 " Keep cursor in center of screen
 nnoremap j jzz

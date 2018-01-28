@@ -3,10 +3,6 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH=/home/saif/.oh-my-zsh
-test -d ~/.linuxbrew && PATH="$HOME/.linuxbrew/bin:$HOME/.linuxbrew/sbin:$PATH"
-test -d /home/linuxbrew/.linuxbrew && PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
-export PATH="$(brew --prefix)/bin:$(brew --prefix)/sbin:$PATH"
-export PATH="$(brew --prefix)/bin:$(brew --prefix)/sbin:$PATH"
 
 PATH=$PATH:~/bin
 
@@ -16,6 +12,8 @@ PATH=$PATH:~/bin
 ZSH_THEME="eastwood"
 
 alias gitupdate='(for l in `find . -name .git | xargs -i dirname {}` ; do cd $l; pwd; git pull; cd -; done)'
+
+(cat ~/.cache/wal/sequences &)
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"

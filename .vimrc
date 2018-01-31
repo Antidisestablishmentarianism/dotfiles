@@ -13,6 +13,8 @@ let g:UltiSnipsSnippetDirectories=["UltiSnips","vim-snippets"]
 let delimitMate_expand_cr = 1
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
 
+let g:livepreview_previewer = 'open -a Preview'
+
 set backspace=2
 set laststatus=2
 set t_Co=256
@@ -59,6 +61,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'dodie/vim-disapprove-deep-indentation'
 Plug 'sjl/gundo.vim'
+Plug 'xuhdev/vim-latex-live-preview'
 
 call plug#end()
 

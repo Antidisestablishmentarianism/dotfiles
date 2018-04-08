@@ -3,8 +3,14 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH=/home/saif/.oh-my-zsh
+export JAVA_HOME=/usr/java/jdk1.8.0_162
 
 PATH=$PATH:~/bin
+PATH="${PATH}:/usr/java/jdk1.8.0_162/bin"
+PATH="${PATH}:/home/saif/.maven/apache-maven-3.5.2/bin"
+PATH="${PATH}:/home/saif/intellij/idea-IU-173.4548.28/bin"
+PATH="${PATH}:/home/saif/Exodus"
+PATH="${PATH}:/home/saif/nodejs/bin"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -12,6 +18,7 @@ PATH=$PATH:~/bin
 ZSH_THEME="eastwood"
 
 alias gitupdate='(for l in `find . -name .git | xargs -i dirname {}` ; do cd $l; pwd; git pull; cd -; done)'
+alias python='python3'
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"

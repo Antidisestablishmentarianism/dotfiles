@@ -13,8 +13,6 @@ ZSH_THEME="eastwood"
 
 alias gitupdate='(for l in `find . -name .git | xargs -i dirname {}` ; do cd $l; pwd; git pull; cd -; done)'
 
-(cat ~/.cache/wal/sequences &)
-
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 

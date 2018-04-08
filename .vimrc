@@ -1,3 +1,5 @@
+let g:livepreview_previewer = 'evince'
+
 set nocompatible
 
 let g:indent_guides_enable_on_vim_startup = 1 
@@ -16,15 +18,6 @@ let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.p
 set backspace=2
 set laststatus=2
 set t_Co=256
-
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set autoindent
-set smartindent
-set number
-set relativenumber
-set hidden
 
 set incsearch
 set ignorecase
@@ -58,7 +51,11 @@ Plug 'w0rp/ale'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'dodie/vim-disapprove-deep-indentation'
-Plug 'sjl/gundo.vim'
+Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
+Plug 'xuhdev/vim-latex-live-preview'
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+Plug 'idanarye/vim-vebugger'
+Plug 'pangloss/vim-javascript'
 
 call plug#end()
 
@@ -118,6 +115,20 @@ nnoremap <leader>l <C-w>l
 
 " When you try to close too fast
 command! Wq wq
+
+" Tab settings
+set tabstop=2
+set softtabstop=0
+set shiftwidth=2
+set expandtab
+set smarttab
+set autoindent
+set smartindent
+set number
+set relativenumber
+set hidden
+autocmd FileType java setlocal autoindent si tabstop=4 shiftwidth=4 cinoptions+=j1
+autocmd FileType html setlocal ts=2 sw=2 expandtab
 
 function! g:UltiSnips_Complete()
   call UltiSnips#ExpandSnippet()

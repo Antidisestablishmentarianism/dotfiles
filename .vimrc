@@ -56,6 +56,7 @@ Plug 'xuhdev/vim-latex-live-preview'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'idanarye/vim-vebugger'
 Plug 'pangloss/vim-javascript'
+Plug 'Valloric/YouCompleteMe'
 
 call plug#end()
 

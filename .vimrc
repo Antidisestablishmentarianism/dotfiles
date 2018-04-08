@@ -70,7 +70,7 @@ call pathogen#infect()
 syntax enable
 set background=dark
 let g:solarized_termtrans=1
-colorscheme wal
+colorscheme solarized
 
 set laststatus=2
 set encoding=utf-8

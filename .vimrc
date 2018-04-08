@@ -15,6 +15,8 @@ let g:UltiSnipsSnippetDirectories=["UltiSnips","vim-snippets"]
 let delimitMate_expand_cr = 1
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
 
+let g:livepreview_previewer = 'evince'
+
 set backspace=2
 set laststatus=2
 set t_Co=256
@@ -57,6 +59,9 @@ Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'idanarye/vim-vebugger'
 Plug 'pangloss/vim-javascript'
 Plug 'Valloric/YouCompleteMe'
+Plug 'sjl/gundo.vim'
+Plug 'dylanaraps/wal'
+Plug 'xuhdev/vim-latex-live-preview'
 
 call plug#end()
 
@@ -65,7 +70,7 @@ call pathogen#infect()
 syntax enable
 set background=dark
 let g:solarized_termtrans=1
-colorscheme solarized
+colorscheme wal
 
 set laststatus=2
 set encoding=utf-8

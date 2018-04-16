@@ -45,7 +45,6 @@ call plug#begin('~/.vim/bundle')
 Plug 'gmarik/vundle'
 Plug 'Yggdroot/indentLine'
 Plug 'SirVer/ultisnips'
-Plug 'flazz/vim-colorschemes'
 Plug 'honza/vim-snippets'
 Plug 'Raimondi/delimitMate'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -62,10 +61,9 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'sjl/gundo.vim'
 Plug 'dylanaraps/wal'
 Plug 'xuhdev/vim-latex-live-preview'
+Plug 'powerline/powerline', { 'rtp': 'powerline/bindings/vim' }
 
 call plug#end()
-
-call pathogen#infect()
 
 syntax enable
 set background=dark

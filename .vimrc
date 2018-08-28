@@ -15,7 +15,9 @@ let g:UltiSnipsSnippetDirectories=["UltiSnips","vim-snippets"]
 let delimitMate_expand_cr = 1
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
 
-let g:livepreview_previewer = 'evince'
+autocmd FileType tex setl updatetime=1
+let g:tex_conceal = ""
+let g:livepreview_previewer = 'open -a Preview'
 
 set backspace=2
 set laststatus=2
@@ -59,9 +61,11 @@ Plug 'idanarye/vim-vebugger'
 Plug 'pangloss/vim-javascript'
 Plug 'Valloric/YouCompleteMe'
 Plug 'sjl/gundo.vim'
-Plug 'dylanaraps/wal'
 Plug 'xuhdev/vim-latex-live-preview'
 Plug 'powerline/powerline', { 'rtp': 'powerline/bindings/vim' }
+Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-repeat'
+Plug 'michaeljsmith/vim-indent-object'
 
 call plug#end()
 

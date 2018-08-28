@@ -2,20 +2,14 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/home/saif/.oh-my-zsh
-export JAVA_HOME=/usr/java/jdk1.8.0_162
+export ZSH=/Users/Saif/.oh-my-zsh
 
 PATH=$PATH:~/bin
-PATH="${PATH}:/usr/java/jdk1.8.0_162/bin"
-PATH="${PATH}:/home/saif/.maven/apache-maven-3.5.2/bin"
-PATH="${PATH}:/home/saif/intellij/idea-IU-173.4548.28/bin"
-PATH="${PATH}:/home/saif/Exodus"
-PATH="${PATH}:/home/saif/nodejs/bin"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="eastwood"
+ZSH_THEME="bira"
 
 alias gitupdate='(for l in `find . -name .git | xargs -i dirname {}` ; do cd $l; pwd; git pull; cd -; done)'
 alias python='python3'
@@ -94,11 +88,3 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/saif/.sdkman"
-[[ -s "/home/saif/.sdkman/bin/sdkman-init.sh" ]] && source "/home/saif/.sdkman/bin/sdkman-init.sh"
